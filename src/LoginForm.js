@@ -4,12 +4,14 @@ import './LoginForm.css';
 
 const LoginForm = () => {
 
-    const [showPassword, setShowPassword] = useState(false);
+    const [showPassword, setShowPassword] = useState(true);
 
     const [formData, setFormData] = useState({
         emailAddress:'',
         password:''
     });
+
+    const [imgSrc, setImgSrc] = useState('/favicon.ico');
 
     // function to handle change in email and password field
     const handleChange = (event) => {
@@ -26,39 +28,54 @@ const LoginForm = () => {
         alert('Clicked on Sign Up!')
     }
 
-    const togglePasswordDispay = () => {
+    const togglePasswordDisplay = () => {
         setShowPassword(!showPassword);
     };
 
+    // function to provide visual feedback on form submission
+    const handleSubmission = (event) => {
+        event.preventDefault();
+        if (formData.emailAddress == '' || formData.password== '') {
+            alert('email address / password incorrect')
+        }
+        else {
+            alert('Login successful!');
+        }
+    };
+
   return (
-    <form className='login-form'>
-        <span className='form-heading'>hurd</span> <br/><br/>
-        <label>
+    <form className='login-form' onSubmit={handleSubmission}>
+        <span className='form-heading'>hurd</span> <br/>
+        <label className='email-label'>
             <input
-             type='email'
+             className='email-input'
+             type='text'
              name='emailAddress'
              placeholder='Email Address'
              value={formData.emailAddress}
              onChange={handleChange}
             /> 
         </label>
-        <br/><br/>
-        <label>
+        <label className='password-label'>
             <input
-            type='text'
+            className='password-input'
+            type={showPassword?'text':'password'}
             name='password'
             placeholder='Password'
             value={formData.password}
             onChange={handleChange}
             />
+            <span className='toggle-pswd' onClick={togglePasswordDisplay}>
+                <img src={showPassword?'/visibility_off.png':'visibility.png'}
+                className='vis-img' />
+            </span>
         </label>
-        <br/><br/>
         <label>
-            <span style={{color:'gray', fontSize:'10px'}} onClick={handleForgetPassword}>Forgot Password?</span> <br/>
-            <span style={{color:'deepskyblue', fontSize:'10px'}} onClick={handleSignup}>Don't have an account? Sign up!</span>
+            <span className='pswd-span' onClick={handleForgetPassword}>Forgot Password?</span> <br/>
+            <span className='signup-span' onClick={handleSignup}>Don't have an account? Sign up!</span>
         </label>
         <br/>
-        <button type='submit'>LOGIN</button>
+        <button className='submit-btn' type='submit'>LOGIN</button>
     </form>
   )
 }

@@ -6,4 +6,103 @@
 
 .login-form {
     margin: 10%;
+    width: 80%;
+    height: 80%;
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center; */
+}
+
+.email-label {
+    width: 100%;
+    margin-bottom: 15px;
+    height: 12%;
+}
+.email-input {
+    width: 100%;
+    height: 100%;
+    border-radius: 5px;
+    padding: 0;
+    border: 0;
+    background-color: black;
+    padding-left: 2%;
+    box-sizing: border-box;
+    color: white;
+}
+
+.password-label {
+    position: relative;
+    width: 100%;
+    height: 12%;
+    margin-bottom: 20px;
+    display: flex;
+}
+
+.password-input {
+    width: 100%;
+    height: 100%;
+    border-radius: 5px;
+    padding: 0;
+    border: 0;
+    background-color: black;
+    padding-left: 2%;
+    box-sizing: border-box;
+    color: white;
+}
+
+.email-input::placeholder,
+.password-input::placeholder {
+    color: rgb(82, 250, 250);
+}
+
+.toggle-pswd {
+    position: absolute;
+    right: 0;
+    height: 100%;
+    width: 20%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.vis-img {
+    height: 60%;
+    width: 50%;
+}
+
+.pswd-span {
+    color: gray;
+    font-size: 10px;
+    cursor: pointer;
+    
+}
+.pswd-span:hover {
+    text-decoration: underline;
+}
+
+.signup-span {
+    color: deepskyblue;
+    font-size: 10px;
+    cursor: pointer;
+    transition: filter 0.3s ease;
+}
+.signup-span:hover {
+    text-decoration: underline;
+    filter: brightness(0.7);
+}
+
+.submit-btn {
+    width: 100%;
+    border-radius: 5px;
+    border: 0px;
+    height: 12%;
+    background-color: rgb(7, 151, 247);
+    font-size: 10px;
+    color: white;
+    cursor: pointer;
+}
+
+.submit-btn:hover {
+    background-color: black;
 }
