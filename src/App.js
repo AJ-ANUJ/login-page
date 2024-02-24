@@ -3,12 +3,14 @@ import LoginForm from './LoginForm';
 function App() {
   return (
     <div className="App">
-      <div className='header' style={{backgroundColor: 'blue', display:'flex'}}>
-        {/* <p style={{display:'flex', 
-        marginBlockStart:'0', marginBlockEnd:'0'}}>hurd</p> */}
-        <div style={{color:'deepskyblue'}}>hurd</div>
+      <div className="app-header">hurd</div>
+      
+      { /* Parent Div for the div that will have the login form */ }
+      <div className='parent-div-1'>
+        <div className='parent-div-2'>
+          <LoginForm></LoginForm>
+        </div>
       </div>
-      <LoginForm></LoginForm>
     </div>
   );
 }

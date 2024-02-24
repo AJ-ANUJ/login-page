@@ -1,13 +1,14 @@
 import React from 'react';
 import { useState } from 'react';
+import './LoginForm.css';
 
 const LoginForm = () => {
 
     const [showPassword, setShowPassword] = useState(false);
 
     const [formData, setFormData] = useState({
-        emailAddress:'Email Address',
-        password:'Password'
+        emailAddress:'',
+        password:''
     });
 
     // function to handle change in email and password field
@@ -30,28 +31,31 @@ const LoginForm = () => {
     };
 
   return (
-    <form>
+    <form className='login-form'>
+        <span className='form-heading'>hurd</span> <br/><br/>
         <label>
             <input
              type='email'
              name='emailAddress'
+             placeholder='Email Address'
              value={formData.emailAddress}
              onChange={handleChange}
             /> 
         </label>
-        <br/>
+        <br/><br/>
         <label>
             <input
             type='text'
             name='password'
+            placeholder='Password'
             value={formData.password}
             onChange={handleChange}
             />
         </label>
-        <br/>
+        <br/><br/>
         <label>
-            <span onClick={handleForgetPassword}>Forgot Password?</span> <br/>
-            Don't have an account? <span onClick={handleSignup}>Sign up!</span>
+            <span style={{color:'gray', fontSize:'10px'}} onClick={handleForgetPassword}>Forgot Password?</span> <br/>
+            <span style={{color:'deepskyblue', fontSize:'10px'}} onClick={handleSignup}>Don't have an account? Sign up!</span>
         </label>
         <br/>
         <button type='submit'>LOGIN</button>
